@@ -12,6 +12,7 @@ function listen(){
 
 
 app.use(express.static('public'));
+app.use(express.static('p5Projects'));
 
 
 var io = require('socket.io')(server);

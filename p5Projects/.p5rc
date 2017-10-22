@@ -1,0 +1,8 @@
+{
+  "name": "p5Projects",
+  "projects": [
+    "pacman",
+    "drop",
+    "triangles"
+  ]
+}
