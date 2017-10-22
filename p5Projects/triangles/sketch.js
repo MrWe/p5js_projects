@@ -1,5 +1,6 @@
 let dots = [];
 let lineDist = 100;
+let dotSpeed = 2;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -43,7 +44,7 @@ function createDot(){
 	let x = (random() < 0.5 ? -5 : width+5);
 	let y = (random() < 0.5 ? -5 : height+5);
 	if(random() > 0.7){
-		dots.push(new Dot(x,y, random(2,5),random(-2,2),random(-2,2), random(255)))
+		dots.push(new Dot(x,y, random(2,5),random(-dotSpeed,dotSpeed),random(-dotSpeed,dotSpeed), random(255)))
 	}
 
 }
