@@ -21,6 +21,13 @@ function draw() {
 
 			for (let i = dot; i < dots.length; i++) {
 				let dist = dots[dot].dist(dots[i].pos)
+				let x = dots[dot].pos.x;
+				let y = dots[dot].pos.y;
+				let dir_x = 0.001 * (dots[i].pos.x - x);
+				let dir_y = 0.001 * (dots[i].pos.y - y);
+				dots[dot].pos.sub(createVector(dir_x, dir_y))
+
+
 				stroke(0, 255/(dist*0.2));
 				strokeWeight(1);
 				if(dist < lineDist){
@@ -30,6 +37,7 @@ function draw() {
 			let mouseDist = dots[dot].dist(createVector(mouseX, mouseY))
 			stroke(0, 255/(mouseDist*0.1));
 			if(mouseDist < lineDist){
+
 				line(dots[dot].pos.x, dots[dot].pos.y, mouseX, mouseY);
 			}
 		}
@@ -45,6 +53,7 @@ function createDot(){
 	let y = (random() < 0.5 ? -5 : height+5);
 	if(random() > 0.7){
 		dots.push(new Dot(x,y, random(2,5),random(-dotSpeed,dotSpeed),random(-dotSpeed,dotSpeed), random(255)))
+		//dots.push(new Dot(width/2,height/2, random(2,5),random(-dotSpeed,dotSpeed),random(-dotSpeed,dotSpeed), random(255)))
 	}
 
 }

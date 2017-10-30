@@ -3,6 +3,7 @@
   "projects": [
     "pacman",
     "drop",
-    "triangles"
+    "triangles",
+    "self_organizing_map"
   ]
 }
