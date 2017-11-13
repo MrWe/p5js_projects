@@ -24,11 +24,11 @@ function setup() {
 	x_points = p.x;
 	y_points = p.y;
 
-	for (let i = 0; i < num_neurons; i++) {
+	for (let i = 0; i < 5; i++) {
 		points.push(createVector(x_points[i],y_points[i]));
 	}
 
-	for (var i = 0; i < num_neurons*2; i++) {
+	for (var i = 0; i < 5; i++) {
 		if(i == 0){
 			neurons.push(new Neuron(createVector(random(width),random(height), null, null)));
 		}
@@ -112,8 +112,8 @@ function cooperative_Process(neuron, that_distance, point){
 
 	let dir_x = learning_rate * (neuron.weights.x - point.x);
 	let dir_y = learning_rate * (neuron.weights.y - point.y);
-	neuron.weights.x -= dir_x;
-	neuron.weights.y -= dir_y;
+	neuron.weights.x -= dir_x*0.1;
+	neuron.weights.y -= dir_y*0.1;
 
 
 
@@ -121,8 +121,8 @@ function cooperative_Process(neuron, that_distance, point){
 		for (var i = 0; i < neuron.neighbours.length; i++) {
 			dir_x = (learning_rate * (neuron.neighbours[i].weights.x - neuron.weights.x));
 			dir_y = ( learning_rate * (neuron.neighbours[i].weights.y - neuron.weights.y));
-			neuron.neighbours[i].weights.x -= dir_x*decay;
-			neuron.neighbours[i].weights.y -= dir_y*decay;
+			neuron.neighbours[i].weights.x -= dir_x*decay*0.1;
+			neuron.neighbours[i].weights.y -= dir_y*decay*0.1;
 		}
 	//}
 

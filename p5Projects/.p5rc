@@ -4,6 +4,7 @@
     "pacman",
     "drop",
     "triangles",
-    "self_organizing_map"
+    "self_organizing_map",
+    "dot_patterns"
   ]
 }

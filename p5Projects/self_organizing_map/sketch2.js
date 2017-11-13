@@ -18,11 +18,11 @@ function setup() {
 
 	p = sanitize_data(file);
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < size; i++) {
 		points.push(createVector(p.x[i],p.y[i]));
 	}
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < size; i++) {
 		neurons.push(createVector(random(width), random(height)));
 	}
 
@@ -67,26 +67,26 @@ function draw() {
 		assigned_neurons[index].y -= dir_y*0.01;
 		neurons[i].x -= dir_x*0.01;
 		neurons[i].y -= dir_y*0.01;
-		if(i > 0){
-			let dir_x = (neurons[i-1].x - assigned_cities[index].x);
-			let dir_y = (neurons[i-1].y - assigned_cities[index].y);
-			index = assigned_neurons.indexOf(neurons[i-1]);
-			neurons[i-1].x -= dir_x*0.1;
-			neurons[i-1].y -= dir_y*0.1;
-			if(index == -1){continue};
-			assigned_neurons[index].x -= dir_x*0.1;
-			assigned_neurons[index].y -= dir_y*0.1;
-		}
-		if(i < neurons.length-1){
-			let dir_x = (neurons[i+1].x - assigned_cities[index].x);
-			let dir_y = (neurons[i+1].y - assigned_cities[index].y);
-			index = assigned_neurons.indexOf(neurons[i+1]);
-			neurons[i+1].x -= dir_x*0.1;
-			neurons[i+1].y -= dir_y*0.1;
-			if(index == -1){continue};
-			assigned_neurons[index].x -= dir_x*0.1;
-			assigned_neurons[index].y -= dir_y*0.1;
-		}
+		// if(i > 0){
+		// 	let dir_x = (neurons[i-1].x - assigned_cities[index].x);
+		// 	let dir_y = (neurons[i-1].y - assigned_cities[index].y);
+		// 	index = assigned_neurons.indexOf(neurons[i-1]);
+		// 	neurons[i-1].x -= dir_x*0.1;
+		// 	neurons[i-1].y -= dir_y*0.1;
+		// 	if(index == -1){continue};
+		// 	assigned_neurons[index].x -= dir_x*0.1;
+		// 	assigned_neurons[index].y -= dir_y*0.1;
+		// }
+		// if(i < neurons.length-1){
+		// 	let dir_x = (neurons[i+1].x - assigned_cities[index].x);
+		// 	let dir_y = (neurons[i+1].y - assigned_cities[index].y);
+		// 	index = assigned_neurons.indexOf(neurons[i+1]);
+		// 	neurons[i+1].x -= dir_x*0.1;
+		// 	neurons[i+1].y -= dir_y*0.1;
+		// 	if(index == -1){continue};
+		// 	assigned_neurons[index].x -= dir_x*0.1;
+		// 	assigned_neurons[index].y -= dir_y*0.1;
+		// }
 
 	}
 
