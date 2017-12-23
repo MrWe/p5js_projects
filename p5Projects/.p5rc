@@ -5,6 +5,9 @@
     "drop",
     "triangles",
     "self_organizing_map",
-    "dot_patterns"
+    "dot_patterns",
+    "flood_fill",
+    "walker",
+    "k-means"
   ]
 }
