@@ -3,20 +3,23 @@ visible_spots = []
 num_spots = 200
 t = 20
 lr = 0.05
-mouse_radius = 400
+mouse_radius = 200
 theta = 0
+let move
 
 let font;
 let img;
 
 function preload() {
     font = loadFont('FreeMonoBold.ttf')
-		img = loadImage("swastika.jpg");
+		img = loadImage("cat.jpg");
 
 }
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	
+	move = false;
 
 	// goal_spots = font.textToPoints('ERIK', width/4, height/2, 500);
 	// print(goal_spots.length)
@@ -26,24 +29,25 @@ function setup() {
 	  for (j = 0; j < img.height-1; j+=3) {
 			let pix = img.get(i,j)
 			let sum = pix[0] + pix[1] + pix[2]
-			if(sum <150){
+			if(sum < 200){
 				goal_spots.push(createVector(((width/2)-img.width/2)+i,((height/2)-img.height/2)+j))
 			}
-
-
+	
+	
 	  }
 	}
-
+	
+	//Heart shape
 	// for (let i = 0; i < num_spots; i++) {
-	// 	// x = width/2 + 300 * cos(map(i, 0, num_spots,0, TWO_PI));
-	// 	// y = height/2 + 300 * sin(map(i, 0, num_spots,0, TWO_PI));
-	// 	x = width/2 + -(t *  16*sin(map(i, 0, num_spots,0, TWO_PI))**3)
-	// 	y = height/2+ -(t *  13*cos(map(i, 0, num_spots,0, TWO_PI))-(8*t)*cos(2*map(i, 0, num_spots,0, TWO_PI))-2*cos(3*map(i, 0, num_spots,0, TWO_PI))-cos(4*map(i, 0, num_spots,0, TWO_PI)))
-	//
+	// 	x = width/2 + 300 * cos(map(i, 0, num_spots,0, TWO_PI));
+	// 	y = height/2 + 300 * sin(map(i, 0, num_spots,0, TWO_PI));
+	// //	x = width/2 + -(t *  16*sin(map(i, 0, num_spots,0, TWO_PI))**3)
+	// 	// y = height/2+ -(t *  13*cos(map(i, 0, num_spots,0, TWO_PI))-(8*t)*cos(2*map(i, 0, num_spots,0, TWO_PI))-2*cos(3*map(i, 0, num_spots,0, TWO_PI))-cos(4*map(i, 0, num_spots,0, TWO_PI)))
+	// 	// 
 	// 	goal_spots.push(createVector(x,y))
 	// }
 
-
+	
 	for (let i = 0; i < goal_spots.length; i++) {
 		x = width/2 + width * cos(map(i, 0, num_spots,0, TWO_PI));
 		y = height/2 + height * sin(map(i, 0, num_spots,0, TWO_PI));
@@ -68,16 +72,16 @@ function draw() {
 		ellipse(visible_spots[i].x, visible_spots[i].y,2,2)
 		//vertex(visible_spots[i].x, visible_spots[i].y)
 		update_visible_spots_towards_goal(i)
-		update_visible_spots_away_from_goal(i)
+		//update_visible_spots_away_from_goal(i)
 	}
 	//endShape(CLOSE);
-
-	// if(frameCount%60 === 0){
-	// 	let last = goal_spots.pop()
-	// 	goal_spots.unshift(last)
-	// }
-
-
+	
+	if(move){
+		if(frameCount%15 === 0){
+			let last = goal_spots.pop()
+			goal_spots.unshift(last)
+		}
+	}
 
 
 

@@ -22,6 +22,8 @@ class Ant {
 
     let pheromone = this.pheromoneMatrix.get(c1.index, c2.index) ** this.alpha;
     let heur = this.heuristic(this.cities[c1.index], this.cities[c2.index]) ** this.beta;
+    //console.log(pheromone + " -- " + heur);
+
 
     let notVisitedVal = 0;
     for (let i = 0; i < this.notVisited.length; i++) {
@@ -52,7 +54,7 @@ class Ant {
           index = i;
         }
       }
-      if(random() < 0.95){
+      if(random() < 0.9){
         this.notVisited.splice(index, 1);
         this.path.push(bestCity);
         this.currentCity = bestCity;

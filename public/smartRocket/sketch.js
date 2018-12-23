@@ -262,7 +262,7 @@ function setup() {
   var rw = random(500);
   var rh = random(250);
 
-  for (var i = 0; i < 0; i++) {
+  for (var i = 0; i < 2; i++) {
     var rx = random(1000);
     var ry = random(100, 300);
     var rw = random(500);

@@ -8,6 +8,15 @@
     "dot_patterns",
     "flood_fill",
     "walker",
-    "k-means"
+    "k-means",
+    "webgl_test",
+    "TSPAnt",
+    "intersection",
+    "Barnsley_fern",
+    "tf_convolution",
+    "particle_optimization",
+    "objectoriented",
+    "quadTree",
+    "drawPoints"
   ]
 }
