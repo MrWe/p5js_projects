@@ -17,6 +17,9 @@
     "particle_optimization",
     "objectoriented",
     "quadTree",
-    "drawPoints"
+    "drawPoints",
+    "bouncing",
+    "newSoundFun",
+    "evolv_particle_gather"
   ]
 }

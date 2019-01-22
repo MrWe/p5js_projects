@@ -4,13 +4,11 @@ var atoms = [];
 
 var zoff = 0;
 
-
 function setup() {
   createCanvas(500, 500);
   background(50);
   center = createVector(width / 2, height / 2);
   start = new Atom(center.x, center.y);
-
 }
 
 function draw() {
@@ -20,23 +18,33 @@ function draw() {
   var xoff = 0;
   var yoff = 10000000;
 
+  frameRate(10);
+
   background(50);
   beginShape();
-  noFill()
+  noFill();
   stroke(255);
-  strokeWeight(2)
-  for (var i = 0; i <= TWO_PI * 5; i += 0.1) {
-    atoms.push(new Atom(TWO_PI * goldChange * cos(i) + width / 2, TWO_PI * goldChange * sin(i) + height / 2));
-    vertex(TWO_PI * random(0, 0.1) * 100 * cos(i) + width / 2, TWO_PI * random(0, 0.1) * 100 * sin(i) + height / 2);
+  strokeWeight(2);
+  for (var i = 0; i <= TWO_PI * 5; i += 0.9) {
+    atoms.push(
+      new Atom(
+        TWO_PI * goldChange * cos(i) + width / 2,
+        TWO_PI * goldChange * sin(i) + height / 2
+      )
+    );
+    vertex(
+      TWO_PI * random(0, 0.1) * 300 * cos(i) + width / 2,
+      TWO_PI * random(0, 0.1) * 300 * sin(i) + height / 2
+    );
 
     xchange++;
     ychange++;
     goldChange *= 1.04;
   }
-  endShape()
-  zoff += 0.05;
+  endShape();
+  zoff += 0.01;
   xoff += 0.01;
-  yoff += 0.05;
+  yoff += 0.01;
   /*
   var xchange = start.x;
   var ychange = start.y;
