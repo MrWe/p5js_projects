@@ -1,26 +1,31 @@
 let startPos;
 let stopPos;
-let r = 10;
+let r = 20;
 let numPoints = 10;
-let genomes = [];
+let population = [];
+let population_size = [];
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
-	startPos = createVector(100, height / 2);
-	stopPos = createVector(500, height / 2);
+  createCanvas(windowWidth, windowHeight);
+  startPos = createVector(200, height / 2);
+  stopPos = createVector(1000, height / 2);
+  start_genome = new Genome();
+  for (let i = 0; i < population_size; i++) {
+    const element = array[i];
+  }
 }
 
 function draw() {
-	//Draw start and stop
-	noFill();
-	stroke(255);
-	strokeWeight(2);
-	ellipse(startPos.x, startPos.y);
-	ellipse(stopPos.x, stopPos.y);
+  background(0);
 
-	g = new Genome();
-	print(g)
-	noLoop();
+  //Draw start and stop
+  push();
+  noFill();
+  stroke(255);
+  strokeWeight(2);
+  ellipse(startPos.x, startPos.y, r);
+  ellipse(stopPos.x, stopPos.y, r);
+  pop();
 
-
+  //g.show();
 }
