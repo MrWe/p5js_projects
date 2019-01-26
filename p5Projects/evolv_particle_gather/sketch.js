@@ -1,17 +1,16 @@
-let startPos;
-let stopPos;
-let r = 20;
-let numPoints = 10;
+let start_pos;
+let stop_pos;
+const r = 20;
+const num_points = 100;
+const population_size = 1;
 let population = [];
-let population_size = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  startPos = createVector(200, height / 2);
-  stopPos = createVector(1000, height / 2);
-  start_genome = new Genome();
+  start_pos = createVector(200, height / 2);
+  stop_pos = createVector(1000, height / 2);
   for (let i = 0; i < population_size; i++) {
-    const element = array[i];
+    population.push(new Genome());
   }
 }
 
@@ -23,9 +22,9 @@ function draw() {
   noFill();
   stroke(255);
   strokeWeight(2);
-  ellipse(startPos.x, startPos.y, r);
-  ellipse(stopPos.x, stopPos.y, r);
+  ellipse(start_pos.x, start_pos.y, r);
+  ellipse(stop_pos.x, stop_pos.y, r);
   pop();
 
-  //g.show();
+  population[0].show();
 }

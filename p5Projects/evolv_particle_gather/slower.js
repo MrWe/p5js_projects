@@ -24,4 +24,8 @@ class Slower {
     ellipse(this.pos.x, this.pos.y, this.size);
     pop();
   }
+
+  copy() {
+    return JSON.parse(JSON.stringify(this));
+  }
 }
