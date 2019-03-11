@@ -1,8 +1,8 @@
-class Accelerator {
+class Horizontal {
   constructor() {
     this.pos = createVector(random(width), random(height));
     this.size = random(10, 200);
-    this.speed = random(1, 2);
+    this.speed = createVector(random(-1, 1), 0)
   }
 
   mutate() {
@@ -12,7 +12,7 @@ class Accelerator {
     } else if (r < 0.6) {
       this.size += random(-10, 10);
     } else if (r < 1) {
-      this.speed += random(-0.1, 0.1);
+      this.speed.x += random(-0.1, 0.1);
     }
   }
 
@@ -26,6 +26,10 @@ class Accelerator {
   }
 
   copy() {
-    return JSON.parse(JSON.stringify(this));
+    let obj = new Horizontal();
+    obj.pos = this.pos;
+    obj.size = this.size;
+    obj.speed = this.speed;
+    return obj;
   }
 }

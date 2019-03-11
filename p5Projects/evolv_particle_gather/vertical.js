@@ -2,7 +2,7 @@ class Vertical {
   constructor() {
     this.pos = createVector(random(width), random(height));
     this.size = random(10, 200);
-    this.speed = random(-2, 2);
+    this.speed = createVector(0, random(-1, 1));
   }
 
   mutate() {
@@ -12,7 +12,7 @@ class Vertical {
     } else if (r < 0.6) {
       this.size += random(-10, 10);
     } else if (r < 1) {
-      this.speed += random(-0.1, 0.1);
+      this.speed.y += random(-0.1, 0.1);
     }
   }
 
@@ -26,6 +26,10 @@ class Vertical {
   }
 
   copy() {
-    return JSON.parse(JSON.stringify(this));
+    let obj = new Vertical();
+    obj.pos = this.pos;
+    obj.size = this.size;
+    obj.speed = this.speed;
+    return obj;
   }
 }

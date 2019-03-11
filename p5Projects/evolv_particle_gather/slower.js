@@ -2,7 +2,7 @@ class Slower {
   constructor() {
     this.pos = createVector(random(width), random(height));
     this.size = random(10, 200);
-    this.speed = random(1, 2);
+    this.speed = random(-1, 1);
   }
 
   mutate() {
@@ -26,6 +26,10 @@ class Slower {
   }
 
   copy() {
-    return JSON.parse(JSON.stringify(this));
+    let obj = new Slower();
+    obj.pos = this.pos;
+    obj.size = this.size;
+    obj.speed = this.speed;
+    return obj;
   }
 }
