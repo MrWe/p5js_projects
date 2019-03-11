@@ -20,6 +20,9 @@
     "drawPoints",
     "bouncing",
     "newSoundFun",
-    "evolv_particle_gather"
+    "evolv_particle_gather",
+    "noise",
+    "chaos_system",
+    "color_heart"
   ]
 }
