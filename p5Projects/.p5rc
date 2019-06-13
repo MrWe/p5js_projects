@@ -23,6 +23,8 @@
     "evolv_particle_gather",
     "noise",
     "chaos_system",
-    "color_heart"
+    "color_heart",
+    "blocks_game",
+    "diamond_square"
   ]
 }
